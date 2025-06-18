@@ -2,20 +2,22 @@ import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { Toaster } from "react-hot-toast";
-import { fetchImages } from "./services/api";
+import { fetchImages, UnsplashImage } from "./services/api";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
 
 export default function App() {
-  const [query, setQuery] = useState("");
-  const [images, setImages] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [totalPages, setTotalPages] = useState(0);
+  const [query, setQuery] = useState<string>("");
+  const [images, setImages] = useState<UnsplashImage[]>([]);
+  const [selectedImage, setSelectedImage] = useState<UnsplashImage | null>(
+    null
+  );
+  const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     if (!query) return;
@@ -45,13 +47,13 @@ export default function App() {
     getImages();
   }, [query, page]);
 
-  const handleSearch = (newQuery) => {
+  const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
   };
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image: UnsplashImage) => {
     setSelectedImage(image);
   };
 

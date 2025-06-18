@@ -2,12 +2,18 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar({ onSubmit }) {
-  const [searchTerm, setSearchTerm] = useState("");
+interface SearchBarProps {
+  onSubmit: (query: string) => void;
+}
 
-  const handleChange = (e) => setSearchTerm(e.target.value);
+export default function SearchBar({ onSubmit }: SearchBarProps) {
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const trimmed = searchTerm.trim();
     if (!trimmed) {

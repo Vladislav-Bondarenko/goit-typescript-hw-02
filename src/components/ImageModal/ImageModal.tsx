@@ -3,7 +3,28 @@ import styles from "./ImageModal.module.css";
 
 Modal.setAppElement("#root");
 
-export default function ImageModal({ isOpen, onClose, image }) {
+interface ExtendedUnsplashImage {
+  urls: {
+    regular: string;
+  };
+  alt_description: string | null;
+  user: {
+    name: string;
+  };
+  likes: number;
+}
+
+interface ImageModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  image: ExtendedUnsplashImage | null;
+}
+
+export default function ImageModal({
+  isOpen,
+  onClose,
+  image,
+}: ImageModalProps) {
   if (!image) return null;
 
   return (
@@ -17,7 +38,7 @@ export default function ImageModal({ isOpen, onClose, image }) {
     >
       <img
         src={image.urls.regular}
-        alt={image.alt_description}
+        alt={image.alt_description || "Image"}
         className={styles.image}
       />
       <p>Author: {image.user.name}</p>
