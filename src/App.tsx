@@ -7,13 +7,18 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
+import {
+  fetchImages,
+  UnsplashImage,
+  ExtendedUnsplashImage,
+} from "./services/api";
 
 export default function App() {
   const [query, setQuery] = useState<string>("");
   const [images, setImages] = useState<UnsplashImage[]>([]);
-  const [selectedImage, setSelectedImage] = useState<UnsplashImage | null>(
-    null
-  );
+  const [selectedImage, setSelectedImage] =
+    useState<ExtendedUnsplashImage | null>(null);
+
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -53,7 +58,7 @@ export default function App() {
     setImages([]);
   };
 
-  const handleImageClick = (image: UnsplashImage) => {
+  const handleImageClick = (image: ExtendedUnsplashImage) => {
     setSelectedImage(image);
   };
 

@@ -33,3 +33,10 @@ export async function fetchImages(
 
   return response.data;
 }
+
+export interface ExtendedUnsplashImage extends UnsplashImage {
+  user: {
+    name: string;
+  };
+  likes: number;
+}
