@@ -12,6 +12,13 @@ export interface UnsplashImage {
   };
 }
 
+export interface ExtendedUnsplashImage extends UnsplashImage {
+  user: {
+    name: string;
+  };
+  likes: number;
+}
+
 export interface UnsplashResponse {
   results: ExtendedUnsplashImage[];
   total: number;
@@ -32,11 +39,4 @@ export async function fetchImages(
   });
 
   return response.data;
-}
-
-export interface ExtendedUnsplashImage extends UnsplashImage {
-  user: {
-    name: string;
-  };
-  likes: number;
 }

@@ -1,18 +1,8 @@
 import Modal from "react-modal";
 import styles from "./ImageModal.module.css";
+import { ExtendedUnsplashImage } from "../../services/api";
 
 Modal.setAppElement("#root");
-
-interface ExtendedUnsplashImage {
-  urls: {
-    regular: string;
-  };
-  alt_description: string | null;
-  user: {
-    name: string;
-  };
-  likes: number;
-}
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -24,7 +14,7 @@ export default function ImageModal({
   isOpen,
   onClose,
   image,
-}: ImageModalProps) {
+}: ImageModalProps): JSX.Element | null {
   if (!image) return null;
 
   return (
