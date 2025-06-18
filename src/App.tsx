@@ -50,7 +50,7 @@ export default function App() {
   const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
     setPage(1);
-    setImages([]);
+    setImages([] as ExtendedUnsplashImage[]);
   };
 
   const handleImageClick = (image: ExtendedUnsplashImage) => {
