@@ -13,7 +13,7 @@ export interface UnsplashImage {
 }
 
 export interface UnsplashResponse {
-  results: UnsplashImage[];
+  results: ExtendedUnsplashImage[];
   total: number;
   total_pages: number;
 }
