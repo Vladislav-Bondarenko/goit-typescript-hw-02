@@ -1,9 +1,9 @@
 import styles from "./ImageCard.module.css";
-import { UnsplashImage } from "../../services/api";
+import { ExtendedUnsplashImage } from "../../services/api";
 
 interface ImageCardProps {
-  image: UnsplashImage;
-  onClick: (image: UnsplashImage) => void;
+  image: ExtendedUnsplashImage;
+  onClick: (image: ExtendedUnsplashImage) => void;
 }
 
 export default function ImageCard({ image, onClick }: ImageCardProps) {
