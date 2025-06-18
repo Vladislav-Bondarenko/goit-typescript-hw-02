@@ -2,20 +2,15 @@ import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { Toaster } from "react-hot-toast";
-import { fetchImages, UnsplashImage } from "./services/api";
+import { fetchImages, ExtendedUnsplashImage } from "./services/api";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import ImageModal from "./components/ImageModal/ImageModal";
-import {
-  fetchImages,
-  UnsplashImage,
-  ExtendedUnsplashImage,
-} from "./services/api";
 
 export default function App() {
   const [query, setQuery] = useState<string>("");
-  const [images, setImages] = useState<UnsplashImage[]>([]);
+  const [images, setImages] = useState<ExtendedUnsplashImage[]>([]);
   const [selectedImage, setSelectedImage] =
     useState<ExtendedUnsplashImage | null>(null);
 
