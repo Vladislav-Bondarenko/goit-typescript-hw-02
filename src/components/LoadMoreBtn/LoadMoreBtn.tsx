@@ -4,9 +4,7 @@ interface LoadMoreBtnProps {
   onClick: () => void;
 }
 
-export default function LoadMoreBtn({
-  onClick,
-}: LoadMoreBtnProps): JSX.Element {
+export default function LoadMoreBtn({ onClick }: LoadMoreBtnProps) {
   return (
     <button className={styles.button} onClick={onClick}>
       Load more

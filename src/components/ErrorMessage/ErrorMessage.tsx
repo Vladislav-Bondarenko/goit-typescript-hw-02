@@ -4,8 +4,6 @@ interface ErrorMessageProps {
   message: string;
 }
 
-export default function ErrorMessage({
-  message,
-}: ErrorMessageProps): JSX.Element {
+export default function ErrorMessage({ message }: ErrorMessageProps) {
   return <p className={styles.error}>{message}</p>;
 }

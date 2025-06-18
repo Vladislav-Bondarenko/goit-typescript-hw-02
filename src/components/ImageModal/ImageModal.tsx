@@ -14,7 +14,7 @@ export default function ImageModal({
   isOpen,
   onClose,
   image,
-}: ImageModalProps): JSX.Element | null {
+}: ImageModalProps) {
   if (!image) return null;
 
   return (
